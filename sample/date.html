@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let now=new Date();
+        console.log("Date:"+now);
+        console.log("date2:"+now.toDateString());
+        console.log("datte3:"+now.toLocaleDateString());
+
+        let age=prompt("enter the age");
+        let name=prompt("enter the name:");
+        if(parseInt(age)>18){
+            console.log("it is valkid typ vote");
+
+        }else{
+            console.log("not eliogible to vote");
+        }
+    </script>
+</head>
+<body>
+    <label>Name:</label><input type="text"><br>
+    <label>Email:</label><input type="email"><br>
+    <label>Password:</label><input type="password"><br>
+    <input type="submit" value="Register">
+    <p id="type"></p>
+</body>
+</html>

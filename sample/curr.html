@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <input type="number" id="currency">
+    <button onclick="getdenom()">denom</button>
+    <div id="result"></div>
+    <button onclick="change" id="chang">taxt change</button>
+    <script>
+        function getdenom(){
+            let n=parseInt(document.getElementById("currency").value);
+            let denominations=[2000,500,200,100,50,20,10,5];
+            let res="";
+            for(let note of denominations){
+                let count=Math.floor(n/note);
+                if(count>0){
+                    res+=`${note}*${count}=${note*count}<br>`;
+                    n%=note;
+                }
+                document.getElementById("result").innerText=res;
+        
+           }
+        }
+    arr=[1,2,3,4,5];
+    obj={a:1,b:2};
+    for(let  i in obj) console.log(i,obj[i]);
+    for(let value in arr) console.log(value);
+    arr.forEach(v=>console.log("foreach",v));
+
+
+    for(let i=0;i<=10;i++) console.log(i);
+    let j=0; while(j<=10) console.log(j++);
+    let k=0;do{
+        console.log(k++);
+    }while(k<=10);
+    function change(){
+        document.getElementById("chang").innertext="text changed";
+    }
+    
+
+    let a=+prompt("enter the number1:");
+    let b=+prompt("enter the number2:");
+    let c=+prompt("enter then number3:");
+    let max=Math.max(a,b,c)
+    alert("the max is:"+max);
+        
+    </script>
+</body>
+</html>

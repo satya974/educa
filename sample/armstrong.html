@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function armstrong(){
+            let n=parseInt(document.getElementById("arms").value);
+            let temp=n,sum=0;
+            const len=n.toString().length;
+            while(temp>0){
+                let digits=temp%10;
+                sum+=Math.pow(digits,len);
+                temp=Math.floor(temp/10);
+            }
+            document.getElementById("result").innerText=sum===n?"armsstrong":"notarmstrong"
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="arms">
+    <button onclick="armstrong()">armstrong</button>
+    <p id="result"></p>
+</body>
+</html>

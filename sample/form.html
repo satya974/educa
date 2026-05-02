@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validate(){
+            let name=document.getElementById("name").value;
+            let mobile=document.getElementById("mobile").value;
+            let email=document.getElementById("email").value;
+            let namepattern=/^[A-Za-z][a-zA-Z0-9]{5,}$/
+            let mobilepattern=/^\d{10}$/
+            let emailpattern=/^[a-zA-Z0-9+-_]+@[a-z]+.[a-z]{2,}$/
+            if(!namepattern.test(name)){
+                alert("in name");
+                return false;
+            }
+            if(!mobilepattern.test(mobile)){
+                alert("invalid mobile");
+                return false;
+            }
+            if(!emailpattern.test(email)){
+                alert("name");
+                return false;
+            }
+            alert("form submitted");
+            return true;
+            
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="validate()">
+        <input type="text" id="name" placeholder="name">
+        <input type="mobile" id="mobile" placeholder="mobile">
+        <input type="email" id="email" placeholder="email">
+        <input type="submit">
+    </form>
+</body>
+</html>

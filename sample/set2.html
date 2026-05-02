@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            div span{color:red;}
+            div >p {color:yellow;}
+            h1+h2{color:black;}
+            h2~p{color:aliceblue;}
+
+    </style>
+    <script>
+        function fact(){
+            let n=parseInt(document.getElementById("num").value);
+            result=1;
+            for( let i=2;i<=n;i++){
+                result*=i;
+            }
+            document.getElementById("output").innerText="factorial:"+result;
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <p>thgis is child</p>
+        <span>dececnat</span>
+    </div>
+    <h1>happy</h1>
+    <h2>
+      happyy2
+    </h2>
+    <p>general</p>
+
+    <input type="number" id="num">
+    <button onclick="fact()">Factorial</button>
+    <p id="output"></p>
+</body>
+</html>

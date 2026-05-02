@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ToDo List</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f4f4f4;
+    }
+
+    p {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .js-input-grid {
+      display: grid;
+      grid-template-columns: 200px 150px 100px;
+      column-gap: 10px;
+      row-gap: 10px;
+      margin-bottom: 20px;
+      align-items: center;
+    }
+
+    .js-input, .js-date {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: #fff;
+    }
+
+    .js-button {
+      padding: 8px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .js-button:hover {
+      background-color: #218838;
+    }
+
+    .todo-grid {
+      display: grid;
+      grid-template-columns: 200px 150px 100px;
+      column-gap: 10px;
+      row-gap: 10px;
+      background-color: #fff;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .todo-grid div {
+      padding: 8px;
+      font-size: 14px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .add-button {
+      border: none;
+      background-color: #dc3545;
+      color: white;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .add-button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <p>TODO LIST</p>
+
+  <!-- Input Fields -->
+  <div class="js-input-grid">
+    <input placeholder="Enter task" class="js-input">
+    <input type="date" class="js-date">
+    <button onclick="add();" class="js-button">ADD</button>
+  </div>
+
+  <!-- ToDo Display -->
+  <div class="js-todo-list todo-grid"></div>
+
+  <script>
+    const todolist = [
+      { name: 'Make dinner', duedate: '2022-12-03' },
+      { name: 'Wash clothes', duedate: '2023-12-07' }
+    ];
+
+    function renderlist() {
+      let todoHtml = '';
+      todolist.forEach(function(todo,index){
+        const html = `
+          <div>${todo.name}</div>
+          <div>${todo.duedate}</div>
+          <button class="add-button" onclick="todolist.splice(${index}, 1); renderlist();">Delete</button>
+        `;
+        todoHtml += html;
+      });
+      document.querySelector('.js-todo-list').innerHTML = todoHtml;
+    }
+
+    function add() {
+      const inputElement = document.querySelector('.js-input');
+      const dateInputEle = document.querySelector('.js-date');
+
+      const name = inputElement.value.trim();
+      const duedate = dateInputEle.value;
+
+      if (name && duedate) {
+        todolist.push({ name, duedate });
+        inputElement.value = '';
+        dateInputEle.value = '';
+        renderlist();
+      } else {
+        alert("Please enter both task and date.");
+      }
+    }
+
+    // Initial render
+    renderlist();
+  </script>
+</body>
+</html>

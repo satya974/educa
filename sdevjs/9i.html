@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="showQuantity()">show quantity</button>
+    <button onclick="updatecart(1)">ADD CART</button>
+    <button onclick="updatecart(2)">+2</button>
+    <button onclick="updatecart(3)">+3</button>
+    <button onclick="updatecart(4)">+4</button>
+    <button oclick="updatecart(5)">+5</button>
+    <button onclick="updatecart(-1)">Remove cart</button>
+    <button onclick="updatecart(-2)">-2</button>
+    <button onclick="updatecart(-3)">-3</button>
+    <button onclick="cartQuantity=0;
+    console.log('cart was reset');
+    showQuantity();
+    ">reset</button>
+    <p class="js-para"></p>
+    <script>
+        let cartQuantity=0;
+        function updatecart(change){
+        if(cartQuantity+change>10){
+            alert('cart was full');
+            return;
+        }
+        if(cartQuantity+change<0){
+            alert('there is place for filling');
+            return;
+        }
+        cartQuantity+=change;
+        showQuantity();
+        }
+        function showQuantity(){
+            document.querySelector('.js-para').innerHTML=`cart:${cartQuantity}`;
+        }
+    </script>
+</body>
+</html>

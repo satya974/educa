@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"path": "../../javacourse"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "fsdproject"
+	}
+}
